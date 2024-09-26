@@ -6,7 +6,7 @@ public class Produto implements Serializable {
     private Long id;
     private String nome;
     private String descricao;
-    private Long quantidade;
+    private Integer quantidade;
     private Double precoDoProduto;
 
     public Produto() {
@@ -34,10 +34,10 @@ public class Produto implements Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    public Long getQuantidade() {
+    public Integer getQuantidade() {
         return quantidade;
     }
-    public void setQuantidade(Long quantidade) {
+    public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
     public Double getPrecoDoProduto() {
