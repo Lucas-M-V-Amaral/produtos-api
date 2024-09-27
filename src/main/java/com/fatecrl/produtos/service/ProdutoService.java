@@ -4,16 +4,19 @@ import com.fatecrl.produtos.model.Produto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProdutoService {
     private static List<Produto> listaDeProdutos = new ArrayList<>();
+    private static AtomicLong contadorId = new AtomicLong();
+
 
     private void produtoFake(){
         Produto produtoFake = new Produto();
-        produtoFake.setId(1L);
+        produtoFake.setId(contadorId.incrementAndGet());
         produtoFake.setNome("Garfo");
         produtoFake.setDescricao("Um garfo de prata.");
         produtoFake.setQuantidade(40);
@@ -55,6 +58,7 @@ public class ProdutoService {
     }
 
     public Produto create(Produto produto){
+        produto.setId(contadorId.incrementAndGet());
         listaDeProdutos.add(produto);
         return produto;
     }
